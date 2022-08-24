@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { HoverDirective } from '../shared/directives/hover.directive';
+import { HttpClientModule } from '@angular/common/http';
+
 import { PagesRoutingModule } from './pages-routing.module';
 import { ProductsModule } from './products/products.module';
 
@@ -9,7 +10,8 @@ import { ProductsModule } from './products/products.module';
     imports: [
         CommonModule,
         PagesRoutingModule,
-        ProductsModule
+        ProductsModule,
+        HttpClientModule
     ],
     exports: [
         PagesRoutingModule,
