@@ -14,7 +14,7 @@
            [routerLink]="option.url">
           <i class="fa fa-{{ option.icon }}" aria-hidden="true"></i>
           {{
-            option.name
+            option.name | titlecase
           }}
         </a>
       </div>

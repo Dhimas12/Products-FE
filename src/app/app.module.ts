@@ -5,10 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { PagesModule } from './pages/pages.module';
+import { HoverDirective } from './shared/directives/hover.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    // HoverDirective
+
   ],
   imports: [
     BrowserModule,
