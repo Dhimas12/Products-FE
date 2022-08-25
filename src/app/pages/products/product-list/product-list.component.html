@@ -13,6 +13,7 @@
 <div class="row mt-4">
   <div class="col">
     <div class="card-container">
+      <i class="fa fa-spinner fa-spin fa-4x text-danger text-center centered"  *ngIf="loading" aria-hidden="true"></i>
       <app-product-card *ngFor="let product of products"
                         [product]="product"
                         class="child">

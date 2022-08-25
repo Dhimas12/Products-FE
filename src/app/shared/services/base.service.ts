@@ -29,15 +29,11 @@ export class BaseService<T extends BaseModel> {
     }
 
     put(obj: T, id:number){
-        const httpOptions = {
-            headers: new HttpHeaders()
-      }
-  
-      httpOptions.headers.append('Access-Control-Allow-Origin', '*');
-      httpOptions.headers.append('Content-Type', 'application/json');
-      httpOptions.headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 
-        return this.http.put(`${this.baseUrl}/${this.controller}/${id}`, obj, httpOptions)
+        let options = {
+            headers: new HttpHeaders().set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE, PUT").set("Access-Control-Allow-Headers", "append,delete,entries,foreach,get,has,keys,set,values,Authorization")
+        }
+        return this.http.put(`${this.baseUrl}/${this.controller}/${id}`, obj)
     }
 
     delete(id:number){

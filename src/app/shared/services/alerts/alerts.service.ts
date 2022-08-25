@@ -21,4 +21,12 @@ export class AlertService {
     return await Toast.fire(text)
   }
 
+  deleteToast(){
+    return Swal.fire({
+      title: 'Do you want to delete this element?',
+      showDenyButton: true,
+      confirmButtonText: 'Delete',
+      denyButtonText: `Don't delete`,
+    })
+  }
 }

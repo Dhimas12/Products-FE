@@ -9,8 +9,7 @@ import { navOption } from '../../models/navOptions.model';
 export class NavbarComponent implements OnInit {
 
   options:navOption[] = [
-    { name: 'products', url: '/products' },
-    { name: 'categories', url: '/categories'}
+    { name: 'products', url: '/products' }
   ]
   constructor() { }
 

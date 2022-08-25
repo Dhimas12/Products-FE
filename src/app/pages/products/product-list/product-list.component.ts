@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/shared/models/products/product.model';
+import { AlertService } from 'src/app/shared/services/alerts/alerts.service';
 import { ProductService } from 'src/app/shared/services/products/product.service';
 
 @Component({
@@ -9,18 +10,23 @@ import { ProductService } from 'src/app/shared/services/products/product.service
 })
 export class ProductListComponent implements OnInit {
   products:Product[] = [];
+  loading:boolean = false;
 
-  constructor(private productService:ProductService) { }
+  constructor(private productService:ProductService,
+              private alertService:AlertService) { }
 
   ngOnInit() {
     this.getProducts();
   }
 
   getProducts(){
+    this.loading = true
     this.productService.get().subscribe({
       next: result =>{
         this.products = result as any;
-      }
+      },
+      error: () => this.alertService.mixin('Error getting products', 'error'),
+      complete: () => this.loading = false
     })
   }
 }
