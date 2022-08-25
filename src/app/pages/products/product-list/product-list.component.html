@@ -11,27 +11,11 @@
 </div>
 
 <div class="row mt-4">
-  <div class="col col-2">
-    <div class="card shadow" id="category-card">
-      <div class="card-header text-center">
-        <label>Sort by category:</label>
-      </div>
-      <div class="card-body">
-        <ul class="square-list">
-          <li class="list-item">Category 1</li>
-          <li class="list-item">Category 2</li>
-          <li class="list-item">Category 3</li>
-          <li class="list-item">Category 4</li>
-          <li class="list-item">Category 5</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="col col-3">
+  <div class="col">
     <div class="card-container">
       <app-product-card *ngFor="let product of products"
-                        [product]="product">
+                        [product]="product"
+                        class="child">
 
       </app-product-card>
     </div>

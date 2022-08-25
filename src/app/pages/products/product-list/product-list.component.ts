@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from 'src/app/shared/models/categories/category.models';
 import { Product } from 'src/app/shared/models/products/product.model';
+import { ProductService } from 'src/app/shared/services/products/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -8,23 +8,19 @@ import { Product } from 'src/app/shared/models/products/product.model';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
-  products:Product[] = [
-    {
-      id: 1,
-      categoryId: 1,
-      name:'sugar',
-      description:'lorem ipsum lorem ipsum lorem ipsum lorem ipsum',
-      price: 50,
-      quantity: 20,
-      weight:50,
-      image: ''
-    }
-  ];
-  categories:Category[] = []
+  products:Product[] = [];
 
-  constructor() { }
+  constructor(private productService:ProductService) { }
 
   ngOnInit() {
+    this.getProducts();
   }
 
+  getProducts(){
+    this.productService.get().subscribe({
+      next: result =>{
+        this.products = result as any;
+      }
+    })
+  }
 }

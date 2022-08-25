@@ -4,7 +4,7 @@
   </div>
 
   <div class="card-body">
-    <img src="assets/img/test.jpg" 
+    <img [src]="product.image" 
          class="img-fluid" 
          alt=""
          (mouseenter)="hover = true"
@@ -26,7 +26,7 @@
 
     <button class="btn btn-info rounded-circle" 
             [routerLink]="'./' + product.id"
-            [queryParams]="{type:'view'}">
+            [queryParams]="{type:'consult'}">
       <i class="fa fa-eye text-white" aria-hidden="true"></i>
     </button>
 
