@@ -28,12 +28,8 @@ export class BaseService<T extends BaseModel> {
         return this.http.post(`${this.baseUrl}/${this.controller}`, obj)
     }
 
-    put(obj: T, id:number){
-
-        let options = {
-            headers: new HttpHeaders().set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE, PUT").set("Access-Control-Allow-Headers", "append,delete,entries,foreach,get,has,keys,set,values,Authorization")
-        }
-        return this.http.put(`${this.baseUrl}/${this.controller}/${id}`, obj)
+    put(obj: T){
+        return this.http.put(`${this.baseUrl}/${this.controller}`, obj)
     }
 
     delete(id:number){

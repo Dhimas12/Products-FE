@@ -109,16 +109,15 @@ export class ProductFormComponent implements OnInit {
     Object.assign(this.product, this.productForm.value)
     this.product.image = this.image
 
-    this.productService.put(this.product, this.product.id).subscribe({
+    this.productService.put(this.product).subscribe({
       next: async () => {
-        await this.alertService.mixin('product added successfully', 'success')
+        await this.alertService.mixin('product updated successfully', 'success')
         this.router.navigate(['/products'])
       },
       error: () =>{
         this.alertService.mixin('error saving the product', 'error')
       }
     })
-
   }
 
   handleUpload(event:any) {
@@ -126,7 +125,6 @@ export class ProductFormComponent implements OnInit {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      console.log(reader.result);
       this.image = reader.result as string;
     };
   }

@@ -1,10 +1,10 @@
 
 <div class="row" id="search-row">
   <div class="col col-6">
-    <input type="text" class="form-control shadow" placeholder="search some product..."> 
+    <input type="text" name="search" [(ngModel)]="searchParam" (keydown.enter)="search()" class="form-control shadow" placeholder="search some product..."> 
   </div>
   <div class="col col-plus">
-    <button class="btn btn-success" routerLink="./create">
+    <button class="btn btn-danger" routerLink="./create">
       <i class="fa fa-plus"></i>
     </button>
   </div>
