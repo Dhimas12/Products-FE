@@ -21,18 +21,26 @@ export class BaseService<T extends BaseModel> {
     }   
 
     find(id:number){
+        this.headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*')
+
         return this.http.get<T>(`${this.baseUrl}/${this.controller}/${id}`)
     }
 
     post(obj: T){
+        this.headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*')
+
         return this.http.post(`${this.baseUrl}/${this.controller}`, obj)
     }
 
     put(obj: T){
+        this.headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*')
+
         return this.http.put(`${this.baseUrl}/${this.controller}`, obj)
     }
 
     delete(id:number){
+        this.headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*')
+
         return this.http.delete(`${this.baseUrl}/${this.controller}/${id}`)
     }
 }
